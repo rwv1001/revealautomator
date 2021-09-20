@@ -12,11 +12,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors())
 
-app.post('/register', (req, res) => {
-    res.send({
-        message: `Hello ${req.body.email}! your user was registered`
-    })
-})
+require('./routes')(app)
+
 sequelize.sync()
     .then(() => {
         app.listen(config.port)
