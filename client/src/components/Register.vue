@@ -15,7 +15,7 @@
   <br>
   <div class="error" v-html="error"/>
   <br>
-  <button
+  <button class="btn btn-primary" 
     @click="register">Register</button>
   </div>
 </template>
@@ -47,4 +47,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.error {
+  color: red;
+}
 </style>
