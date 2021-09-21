@@ -19,6 +19,9 @@
           <li class="nav-item">
             <router-link to="login" class="btn red" v-if="!$store.state.isUserLoggedIn">Login</router-link>            
           </li>          
+          <li class="nav-item">
+            <button v-if="$store.state.isUserLoggedIn" class="btn btn-router-link" @click="logout">Logout</button>            
+          </li>          
         </ul>
       </nav>
     </div>
@@ -26,7 +29,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'Home'
+      })
+    }
+  }
+};
 </script>
 
 <style scoped>
