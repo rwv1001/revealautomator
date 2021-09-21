@@ -1,0 +1,33 @@
+<template>
+  <div class="container">
+    <div class="row">
+      <nav class="navbar navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+          <img
+            src="/docs/4.0/assets/brand/bootstrap-solid.svg"
+            width="30"
+            height="30"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          Boostrap
+        </a>
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <router-link to="register" class="btn red" v-if="!$store.state.isUserLoggedIn">Sign Up</router-link>            
+          </li>
+          <li class="nav-item">
+            <router-link to="login" class="btn red" v-if="!$store.state.isUserLoggedIn">Login</router-link>            
+          </li>          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+</style>

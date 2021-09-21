@@ -1,6 +1,19 @@
 <template>
-  <router-view/>
+  <div>
+    <page-header />
+    <router-view />
+  </div>
 </template>
+
+<script>
+import PageHeader from "@/components/Header.vue";
+export default {
+  name: "app",
+  components: {
+    PageHeader,
+  },
+};
+</script>
 
 <style>
 #app {

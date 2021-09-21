@@ -1,20 +1,17 @@
 <template>
   <div class="container">
 
-    <div id="register_id" class="row">
+    <div id="login_id" class="row">
       <div class="col-md">
-        <h1>Register</h1>
-        <form name="register-form" autocomplete="off">
-          <input type="email" name="email" v-model="email"  placeholder="email" />
-          <br />
-          <input
-            type="password"
-            name="password"
-            v-model="password"
-            autocomplete="new-password"
-            placeholder="password"
-          />
-        </form>
+        <h1>Login</h1>
+        <input type="email" name="email" v-model="email" placeholder="email" />
+        <br />
+        <input
+          type="password"
+          name="password"
+          v-model="password"
+          placeholder="password"
+        />
         <br />
         <div
           class="alert alert-danger"
@@ -24,7 +21,7 @@
         />
 
         <br />
-        <button class="btn btn-primary" @click="register">Register</button>
+        <button class="btn btn-primary" @click="login">Login</button>
       </div>
     </div>
   </div>
@@ -41,16 +38,15 @@ export default {
     };
   },
   methods: {
-    async register() {
+    async login() {
       try {
         this.error = null;
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password,
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.token)
-        
       } catch (error) {
         this.error = error.response.data.error;
       }
@@ -64,7 +60,7 @@ export default {
 .error {
   color: red;
 }
-#register_id {
+#login_id {
   padding-top: 60px;
 }
 </style>
