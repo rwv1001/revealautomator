@@ -40,6 +40,7 @@ export default {
   methods: {
     async login() {
       try {
+        
         this.error = null;
         const response = await AuthenticationService.login({
           email: this.email,
@@ -47,6 +48,8 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        this.$router.push({
+        name: 'presentations'})
       } catch (error) {
         this.error = error.response.data.error;
       }
@@ -60,7 +63,5 @@ export default {
 .error {
   color: red;
 }
-#login_id {
-  padding-top: 60px;
-}
+
 </style>

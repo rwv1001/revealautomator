@@ -14,10 +14,10 @@
         </a>
         <ul class="nav justify-content-end">
           <li class="nav-item">
-            <router-link to="register" class="btn red" v-if="!$store.state.isUserLoggedIn">Sign Up</router-link>            
+            <router-link to="/register" class="btn red" v-if="!$store.state.isUserLoggedIn">Sign Up</router-link>            
           </li>
           <li class="nav-item">
-            <router-link to="login" class="btn red" v-if="!$store.state.isUserLoggedIn">Login</router-link>            
+            <router-link to="/login" class="btn red" v-if="!$store.state.isUserLoggedIn">Login</router-link>            
           </li>          
           <li class="nav-item">
             <button v-if="$store.state.isUserLoggedIn" class="btn btn-router-link" @click="logout">Logout</button>            
@@ -25,6 +25,7 @@
         </ul>
       </nav>
     </div>
+    <div id="header_id">.</div>
   </div>
 </template>
 
@@ -43,4 +44,7 @@ export default {
 </script>
 
 <style scoped>
+#header_id {
+  padding-bottom: 60px;
+}
 </style>

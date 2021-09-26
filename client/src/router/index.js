@@ -3,6 +3,11 @@ import Home from '../views/Home.vue'
 import Register from '@/components/Register'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
+import Presentations from '@/components/Presentations'
+import EditPresentation from '@/components/EditPresentation'
+import ViewPresentation from '@/components/ViewPresentation'
+import CreatePresentation from '@/components/CreatePresentation'
+
 
 const routes = [
   {
@@ -27,6 +32,26 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/presentations',
+    name: 'presentations',
+    component: Presentations
+  },
+  {
+    path: '/presentations/create',
+    name: 'presentations-create',
+    component: CreatePresentation
+  },
+  {
+    path: '/presentations/:presentationId',
+    name: 'presentation',
+    component: ViewPresentation
+  },
+  {
+    path: '/presentations/:presentationId/edit',
+    name: 'presentation-edit',
+    component: EditPresentation
   }
 ]
 
