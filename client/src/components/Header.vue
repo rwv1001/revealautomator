@@ -18,7 +18,10 @@
           </li>
           <li class="nav-item">
             <router-link to="/login" class="btn red" v-if="!$store.state.isUserLoggedIn">Login</router-link>            
-          </li>          
+          </li> 
+          <li class="nav-item">
+            <button v-if="$store.state.isUserLoggedIn" class="btn btn-router-link" @click="listpresntations">List Presentations</button>            
+          </li>         
           <li class="nav-item">
             <button v-if="$store.state.isUserLoggedIn" class="btn btn-router-link" @click="logout">Logout</button>            
           </li>          
@@ -37,6 +40,11 @@ export default {
       this.$store.dispatch('setUser', null)
       this.$router.push({
         name: 'Home'
+      })
+    },
+    listpresntations () {
+      this.$router.push({
+        name: 'presentations'
       })
     }
   }
